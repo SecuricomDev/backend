@@ -11,15 +11,7 @@ const port = process.env.PORT || 3000;
 const dbURI = process.env.MONGODB_URI || 'mongodb+srv://CameronLuyt69:21102001@contact-keeper.hvfzf.mongodb.net/?retryWrites=true&w=majority'; // Use environment variables
 
   const corsOptions = {
-    origin: function (origin, callback) {
-      // Check if the origin is allowed; you can add your logic here
-      // For development, you can allow all origins using a wildcard '*'
-      if (!origin || origin === 'https://securicom-sms.netlify.app') {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: true,
     methods: 'POST', // Allow only POST requests
   };
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
